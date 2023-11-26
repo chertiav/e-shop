@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  db-dev:
+    image: postgres
+    container_name: webapp
+    ports:
+      - ${DB_PORT}:5432
+    environment:
+      - POSTGRES_HOST=${DB_HOST}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+    command: postgres
+    restart: unless-stopped
